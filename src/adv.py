@@ -56,17 +56,25 @@ player = Player(room['outside'],[])
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
+print('-----------------\n\n\n\n\n\n\n\n\n')
+print('Welcome')
+print('\n\n\n\n\n\n\n\n\n-----------------')
 print(player.location)
-u_input = input("Verb + Noun: ie 'GO NORTH' 'q' to Quit\n")
+u_input = input("Enter command: ('q' to Quit)\n")
 while not u_input == 'q':
+    try:
 
-    if u_input == 'north':
-        player.location = player.location.n_to
-    elif u_input =='south':
-        player.location = player.location.s_to
-    elif u_input =='east':
-        player.location = player.location.e_to
-    elif u_input =="west":
-        player.location = player.location.w_to
-    print(player.location)    
-    u_input = input("Verb + Noun: ie 'GO NORTH' 'q' to Quit\n")
+        if u_input == 'north':
+            player.location = player.location.n_to
+        elif u_input =='south':
+            player.location = player.location.s_to
+        elif u_input =='east':
+            player.location = player.location.e_to
+        elif u_input =="west":
+            player.location = player.location.w_to
+    except:
+        print('\n----------\n          ***ERROR***\n        Unknown Command!\n')
+        print("     try 'north', 'south' etc.\n----------")
+
+    print(player.location)
+    u_input = input("Enter command: 'q' to Quit\n")
